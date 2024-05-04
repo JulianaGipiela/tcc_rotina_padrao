@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "871912685062",
+    "project_id": "rotinapadrao",
+    "storage_bucket": "rotinapadrao.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871912685062:android:fc2496b27812bff8fe4d87",
+        "android_client_info": {
+          "package_name": "com.example.rotinapadrao"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9lpkn7KYsq9l6R7zsu79no6JKSTS92Og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
