@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rotinapadrao.databinding.ActivityLoginBinding // Importe a classe de binding
 import com.google.firebase.auth.FirebaseAuth
+import com.example.rotinapadrao.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -34,11 +35,14 @@ class LoginActivity : AppCompatActivity() {
     private fun loginUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                binding.loginProgressBar.visibility = View.GONE // Oculta o ProgressBar
+
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
-                    // Implemente a navegação para a próxima activity aqui
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish() // Fecha a LoginActivity após iniciar a MainActivity
                 } else {
-                    Toast.makeText(this, "Falha no login: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }

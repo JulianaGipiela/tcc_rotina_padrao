@@ -2,10 +2,12 @@ package com.example.rotinapadrao
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rotinapadrao.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.android.material.snackbar.Snackbar
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -32,10 +34,15 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser(email: String, password: String) {
+        binding.registerProgressBar.visibility = View.VISIBLE // Mostra o ProgressBar
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                binding.registerProgressBar.visibility = View.GONE // Oculta o ProgressBar
+
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+                    val snackbar = Snackbar.make(binding.root, "Registration successful!", Snackbar.LENGTH_SHORT)
+                    snackbar.show()
                     // Redireciona para a tela de login
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
@@ -44,6 +51,8 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+
     }
+
 
 }
