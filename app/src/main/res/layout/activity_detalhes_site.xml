@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <!-- Inclui o cabeçalho -->
     <include
         android:id="@+id/headerLayout"
-        layout="@layout/header_layout" />
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <!-- Título do site -->
     <TextView
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_margin="16dp"/>
 
     <!-- Nome da emissora -->
     <TextView
@@ -27,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_margin="16dp"/>
 
     <!-- Botão "Última Preventiva" -->
     <Button
@@ -35,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Última Preventiva"
-        android:layout_marginBottom="8dp"/>
+        android:layout_margin="16dp"/>
 
     <!-- Botão "Nova Preventiva" -->
     <Button
@@ -43,6 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nova Preventiva"
-        android:layout_marginBottom="8dp"/>
+        android:layout_margin="16dp"/>
 
 </LinearLayout>

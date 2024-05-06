@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <include
         android:id="@+id/headerLayout"
-        layout="@layout/header_layout" />
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/txtEmissoraTitle"
@@ -17,8 +18,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:gravity="center"/>
 
     <!-- LinearLayout para conter os botões dos sites -->
@@ -26,6 +26,7 @@
         android:id="@+id/layoutBotoesSites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="vertical">
     </LinearLayout>
 
