@@ -118,6 +118,8 @@ class DetalhesSiteActivity : AppCompatActivity() {
             val intent = Intent(this@DetalhesSiteActivity, NovaPreventivaActivity::class.java)
             intent.putExtra("NOME_SITE", nomeSite)
             intent.putExtra("NOME_EMISSORA", nomeEmissora)
+            intent.putExtra("ID_EMISSORA", idEmissora)
+            intent.putExtra("ID_SITE", idSite)
             startActivity(intent)
         }
     }
