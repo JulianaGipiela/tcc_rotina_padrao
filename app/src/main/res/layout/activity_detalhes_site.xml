@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Inclui o cabeçalho -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/header_layout" />
+
+    <!-- Título do site -->
+    <TextView
+        android:id="@+id/txtNomeSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Nome da emissora -->
+    <TextView
+        android:id="@+id/txtNomeEmissora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botão "Última Preventiva" -->
+    <Button
+        android:id="@+id/btnUltimaPreventiva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Última Preventiva"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botão "Nova Preventiva" -->
+    <Button
+        android:id="@+id/btnNovaPreventiva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nova Preventiva"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

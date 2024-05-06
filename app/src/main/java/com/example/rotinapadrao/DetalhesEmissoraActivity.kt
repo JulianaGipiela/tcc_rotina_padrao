@@ -1,5 +1,6 @@
 package com.example.rotinapadrao
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -46,7 +47,11 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
                             val button = Button(this@DetalhesEmissoraActivity)
                             button.text = siteNome
                             button.setOnClickListener {
-                                // Implemente a ação do botão aqui, se necessário
+                                val intent = Intent(this@DetalhesEmissoraActivity, DetalhesSiteActivity::class.java)
+                                intent.putExtra("ID_SITE", siteId) // Passa o ID do site para a próxima atividade
+                                intent.putExtra("NOME_SITE", siteNome)
+                                intent.putExtra("NOME_EMISSORA", emissora)
+                                startActivity(intent)
                             }
                             layoutBotoesSites.addView(button)
                         }
