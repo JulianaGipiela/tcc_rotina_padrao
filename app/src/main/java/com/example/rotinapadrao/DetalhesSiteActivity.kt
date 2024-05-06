@@ -1,6 +1,7 @@
 package com.example.rotinapadrao
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -68,8 +69,41 @@ class DetalhesSiteActivity : AppCompatActivity() {
                 if (temPreventivas) {
                      btnUltimaPreventiva.isEnabled = true
                     btnUltimaPreventiva.setOnClickListener {
-                        // Abrir a tela de detalhes da última preventiva para o site
+                        Log.d("DetalhesSiteActivity", "Clicou no botão Última Preventiva")
+
+                        val query = preventivasRef.orderByChild("data").limitToLast(1)
+
+                        query.addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                if (snapshot.exists()) {
+                                    // Obtém a última preventiva
+                                    val ultimaPreventiva = snapshot.children.first()
+
+                                    // Extrai os dados da preventiva
+                                    val data = ultimaPreventiva.child("data").getValue(String::class.java)
+                                    val responsavel = ultimaPreventiva.child("responsavel").getValue(String::class.java)
+                                    val descricao = ultimaPreventiva.child("descricao").getValue(String::class.java)
+
+                                    val intent = Intent(this@DetalhesSiteActivity, DetalhesPreventivaActivity::class.java)
+                                    intent.putExtra("NOME_SITE", nomeSite) // Passa o ID do site para a próxima atividade
+                                    intent.putExtra("NOME_EMISSORA", nomeEmissora)
+                                    intent.putExtra("DATA", data)
+                                    intent.putExtra("RESPONSAVEL", responsavel)
+                                    intent.putExtra("DESCRICAO", descricao)
+                                    startActivity(intent)
+                                    // Agora você pode usar esses dados como quiser
+                                } else {
+                                    // Não há preventivas para este site
+                                }
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                // Tratar erro, se necessário
+                            }
+                        })
                     }
+
+
                 } else {
                     btnUltimaPreventiva.isEnabled = false
                 }
