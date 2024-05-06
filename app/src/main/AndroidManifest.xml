@@ -26,6 +26,8 @@
         <activity android:name=".DetalhesEmissoraActivity" />
         <activity android:name=".DetalhesSiteActivity" />
         <activity android:name=".DetalhesPreventivaActivity" />
+        <activity android:name=".NovaPreventivaActivity" />
+
 
     </application>
 

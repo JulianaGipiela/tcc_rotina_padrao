@@ -115,7 +115,10 @@ class DetalhesSiteActivity : AppCompatActivity() {
         })
 
         btnNovaPreventiva.setOnClickListener {
-            // Implemente a ação do botão "Nova Preventiva" aqui
+            val intent = Intent(this@DetalhesSiteActivity, NovaPreventivaActivity::class.java)
+            intent.putExtra("NOME_SITE", nomeSite)
+            intent.putExtra("NOME_EMISSORA", nomeEmissora)
+            startActivity(intent)
         }
     }
 }
