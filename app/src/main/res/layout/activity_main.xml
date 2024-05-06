@@ -93,27 +93,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Botão para Informações -->
-    <Button
-        android:id="@+id/btnInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Informações"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:backgroundTint="#9E9E9E"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:paddingStart="16dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="12dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnEmissora4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnEmissora4.setOnClickListener {
             abrirDetalhesEmissora(4)
         }
+
+
     }
 
     private fun abrirDetalhesEmissora(idEmissora: Int) {
