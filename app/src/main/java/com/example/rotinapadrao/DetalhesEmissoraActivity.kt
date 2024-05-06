@@ -1,11 +1,12 @@
 package com.example.rotinapadrao
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-
 class DetalhesEmissoraActivity : AppCompatActivity() {
 
     private lateinit var database: FirebaseDatabase
@@ -20,15 +21,14 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val idEmissora = intent.getIntExtra("ID_EMISSORA", -1)
-        val emissoraRef = database.getReference("emissora").child(idEmissora.toString())
+        val emissoraRef = database.getReference("emissora").child(idEmissora.toString()).child("nome")
 
-        // Adicione um ouvinte de valor para recuperar o nome da emissora do Firebase Realtime Database
+        // Adicione um ouvinte de valor para recuperar os dados da emissora do Firebase Realtime Database
         emissoraRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val nomeEmissora = snapshot.getValue(String::class.java)
                 if (nomeEmissora != null) {
                     supportActionBar?.title = nomeEmissora
-
                     val textViewTituloEmissora = findViewById<TextView>(R.id.txtEmissoraTitle)
                     textViewTituloEmissora.text = nomeEmissora
                 }
@@ -39,4 +39,6 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
             }
         })
     }
+
+
 }
