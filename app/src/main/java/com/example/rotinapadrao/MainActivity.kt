@@ -29,5 +29,27 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish() // Fecha a MainActivity após iniciar a LoginActivity
         }
+
+        binding.btnEmissora1.setOnClickListener {
+            abrirDetalhesEmissora("Emissora 1")
+        }
+
+        binding.btnEmissora2.setOnClickListener {
+            abrirDetalhesEmissora("Emissora 2")
+        }
+
+        binding.btnEmissora3.setOnClickListener {
+            abrirDetalhesEmissora("Emissora 3")
+        }
+
+        binding.btnEmissora4.setOnClickListener {
+            abrirDetalhesEmissora("Emissora 4")
+        }
+    }
+
+    private fun abrirDetalhesEmissora(nomeEmissora: String) {
+        val intent = Intent(this, DetalhesEmissoraActivity::class.java)
+        intent.putExtra("nomeEmissora", nomeEmissora)
+        startActivity(intent)
     }
 }
