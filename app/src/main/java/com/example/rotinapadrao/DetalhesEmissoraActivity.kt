@@ -49,6 +49,7 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
                             button.setOnClickListener {
                                 val intent = Intent(this@DetalhesEmissoraActivity, DetalhesSiteActivity::class.java)
                                 intent.putExtra("ID_SITE", siteId) // Passa o ID do site para a próxima atividade
+                                intent.putExtra("ID_EMISSORA", idEmissora)
                                 intent.putExtra("NOME_SITE", siteNome)
                                 intent.putExtra("NOME_EMISSORA", emissora)
                                 startActivity(intent)
