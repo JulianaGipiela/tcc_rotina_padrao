@@ -31,25 +31,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnEmissora1.setOnClickListener {
-            abrirDetalhesEmissora("Emissora 1")
+            abrirDetalhesEmissora(1)
         }
 
         binding.btnEmissora2.setOnClickListener {
-            abrirDetalhesEmissora("Emissora 2")
+            abrirDetalhesEmissora(2)
         }
 
         binding.btnEmissora3.setOnClickListener {
-            abrirDetalhesEmissora("Emissora 3")
+            abrirDetalhesEmissora(3)
         }
 
         binding.btnEmissora4.setOnClickListener {
-            abrirDetalhesEmissora("Emissora 4")
+            abrirDetalhesEmissora(4)
         }
     }
 
-    private fun abrirDetalhesEmissora(nomeEmissora: String) {
+    private fun abrirDetalhesEmissora(idEmissora: Int) {
         val intent = Intent(this, DetalhesEmissoraActivity::class.java)
-        intent.putExtra("nomeEmissora", nomeEmissora)
+        intent.putExtra("ID_EMISSORA", idEmissora)
         startActivity(intent)
     }
 }

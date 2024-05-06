@@ -10,12 +10,22 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_emissora)
 
-        // Configura o título da atividade com o nome da emissora
-        val nomeEmissora = intent.getStringExtra("nomeEmissora")
+        val idEmissora = intent.getIntExtra("ID_EMISSORA", -1)
+        val nomeEmissora = getNomeEmissoraFromId(idEmissora)
         supportActionBar?.title = nomeEmissora
 
-        // Configura o nome da emissora no TextView
+
         val textViewTituloEmissora = findViewById<TextView>(R.id.textViewTituloEmissora)
         textViewTituloEmissora.text = nomeEmissora
+    }
+
+    private fun getNomeEmissoraFromId(idEmissora: Int): String {
+        return when (idEmissora) {
+            1 -> "Emissora 1"
+            2 -> "Emissora 2"
+            3 -> "Emissora 3"
+            4 -> "Emissora 4"
+            else -> "Emissora Desconhecida"
+        }
     }
 }
