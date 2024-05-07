@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
+        binding.loginProgressBar.visibility = View.VISIBLE
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 binding.loginProgressBar.visibility = View.GONE // Oculta o ProgressBar
