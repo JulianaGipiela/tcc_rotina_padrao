@@ -20,13 +20,29 @@ class NovaPreventivaActivity : AppCompatActivity() {
 
     private lateinit var txtNomeSite: TextView
     private lateinit var txtNomeEmissora: TextView
-    private lateinit var edtData: EditText
     private lateinit var edtDescricao: EditText
     private lateinit var edtResponsavel: EditText
     private lateinit var btnSavePreventiva: Button
     private lateinit var limpezaCheck: CheckBox
     private lateinit var inspecaoCheck: CheckBox
     private lateinit var limpezaExternaCheck: CheckBox
+    private lateinit var muroCheck: CheckBox
+    private lateinit var abrigoCheck: CheckBox
+    private lateinit var telhadoCheck: CheckBox
+    private lateinit var sinalCheck: CheckBox
+    private lateinit var nobreakCheck: CheckBox
+    private lateinit var tensaobanco: EditText
+    private lateinit var frequencia: EditText
+    private lateinit var correntef3: EditText
+    private lateinit var correntet: EditText
+    private lateinit var correntef2: EditText
+    private lateinit var correnten: EditText
+    private lateinit var correntef1: EditText
+    private lateinit var tensaont: EditText
+    private lateinit var tensaofn: EditText
+    private lateinit var tensaof3f1: EditText
+    private lateinit var tensaof2f3: EditText
+    private lateinit var tensaof1f2: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +54,29 @@ class NovaPreventivaActivity : AppCompatActivity() {
         // Inicializa as views
         txtNomeSite = findViewById(R.id.txtNomeSite)
         txtNomeEmissora = findViewById(R.id.txtNomeEmissora)
-        edtData = findViewById(R.id.edtData)
         edtDescricao = findViewById(R.id.edtDescricao)
         edtResponsavel = findViewById(R.id.edtResponsavel)
         btnSavePreventiva = findViewById(R.id.btnSavePreventiva)
         limpezaCheck = findViewById(R.id.limpezaCheck)
         inspecaoCheck = findViewById(R.id.inspecaoCheck)
         limpezaExternaCheck = findViewById(R.id.limpezaExternaCheck)
+        muroCheck = findViewById(R.id.muroCheck)
+        abrigoCheck = findViewById(R.id.abrigoCheck)
+        telhadoCheck = findViewById(R.id.telhadoCheck)
+        sinalCheck = findViewById(R.id.sinalCheck)
+        nobreakCheck = findViewById(R.id.nobreakCheck)
+        tensaobanco = findViewById(R.id.tensaobanco)
+        frequencia = findViewById(R.id.frequencia)
+        correntef3 = findViewById(R.id.correnteF3)
+        correntet = findViewById(R.id.correnteT)
+        correntef2 = findViewById(R.id.correnteF2)
+        correnten = findViewById(R.id.correnteN)
+        correntef1 = findViewById(R.id.correnteF1)
+        tensaont = findViewById(R.id.tensaont)
+        tensaofn = findViewById(R.id.tensaofn)
+        tensaof3f1 = findViewById(R.id.tensaof3f1)
+        tensaof2f3 = findViewById(R.id.tensaof2f3)
+        tensaof1f2 = findViewById(R.id.tensaof1f2)
 
         // Obtém os dados do Intent
         val nomeSite = intent.getStringExtra("NOME_SITE")
@@ -57,7 +89,6 @@ class NovaPreventivaActivity : AppCompatActivity() {
         // Configura o botão para salvar a nova preventiva
         btnSavePreventiva.setOnClickListener {
             // Obtém os valores dos campos
-            val data = edtData.text.toString()
             val descricao = edtDescricao.text.toString()
             val responsavel = edtResponsavel.text.toString()
 
@@ -76,13 +107,29 @@ class NovaPreventivaActivity : AppCompatActivity() {
             if (novaPreventivaKey != null && !idSite.isNullOrEmpty()) {
                 // Cria um objeto Preventiva com os detalhes da preventiva
                 val novaPreventiva = Preventiva(
-                    //data = edtData.text.toString(),
                     data = dateFormat.format(Calendar.getInstance().time),
                     descricao = edtDescricao.text.toString(),
                     responsavel = edtResponsavel.text.toString(),
                     limpeza = limpezaCheck.isChecked,
                     inspecao = inspecaoCheck.isChecked,
                     limpezaExterna = limpezaExternaCheck.isChecked,
+                    muro = muroCheck.isChecked,
+                    abrigo = abrigoCheck.isChecked,
+                    telhado = telhadoCheck.isChecked,
+                    sinal = sinalCheck.isChecked,
+                    nobreak = nobreakCheck.isChecked,
+                    tensaobanco = tensaobanco.text.toString(),
+                    frequencia = frequencia.text.toString(),
+                    correntef3 = correntef3.text.toString(),
+                    correntet = correntet.text.toString(),
+                    correntef2 = correntef2.text.toString(),
+                    correnten = correnten.text.toString(),
+                    correntef1 = correntef1.text.toString(),
+                    tensaont = tensaont.text.toString(),
+                    tensaofn = tensaofn.text.toString(),
+                    tesaof3f1 = tensaof3f1.text.toString(),
+                    tensaof2f3 = tensaof2f3.text.toString(),
+                    tensaof1f2 = tensaof1f2.text.toString(),
                     site = idSite
                 )
 
