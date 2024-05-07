@@ -21,7 +21,7 @@ class DetalhesPreventivaActivity : AppCompatActivity() {
         val data = intent.getStringExtra("DATA")
         val responsavel = intent.getStringExtra("RESPONSAVEL")
         val descricao = intent.getStringExtra("DESCRICAO")
-        val isRealizado = intent.getBooleanExtra("REALIZADO", false)
+        val isRealizado = intent.getBooleanExtra("INSPECAO", false)
         Log.d("DetalhesPreventivaActivity", "Valor recuperado do Firebase: $isRealizado")
         val txtNomeSite = findViewById<TextView>(R.id.txtNomeSite)
         val txtNomeEmissora = findViewById<TextView>(R.id.txtNomeEmissora)
