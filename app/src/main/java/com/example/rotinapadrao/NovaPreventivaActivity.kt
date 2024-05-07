@@ -1,13 +1,17 @@
 package com.example.rotinapadrao
 
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class NovaPreventivaActivity : AppCompatActivity() {
 
@@ -20,6 +24,10 @@ class NovaPreventivaActivity : AppCompatActivity() {
     private lateinit var edtDescricao: EditText
     private lateinit var edtResponsavel: EditText
     private lateinit var btnSavePreventiva: Button
+    private lateinit var limpezaCheck: CheckBox
+    private lateinit var inspecaoCheck: CheckBox
+    private lateinit var limpezaExternaCheck: CheckBox
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +42,9 @@ class NovaPreventivaActivity : AppCompatActivity() {
         edtDescricao = findViewById(R.id.edtDescricao)
         edtResponsavel = findViewById(R.id.edtResponsavel)
         btnSavePreventiva = findViewById(R.id.btnSavePreventiva)
+        limpezaCheck = findViewById(R.id.limpezaCheck)
+        inspecaoCheck = findViewById(R.id.inspecaoCheck)
+        limpezaExternaCheck = findViewById(R.id.limpezaExternaCheck)
 
         // Obtém os dados do Intent
         val nomeSite = intent.getStringExtra("NOME_SITE")
@@ -59,14 +70,19 @@ class NovaPreventivaActivity : AppCompatActivity() {
 
 // Gere uma chave única para a nova preventiva
             val novaPreventivaKey = preventivasRef.push().key
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
 
 // Verifica se a chave foi gerada corretamente
             if (novaPreventivaKey != null && !idSite.isNullOrEmpty()) {
                 // Cria um objeto Preventiva com os detalhes da preventiva
                 val novaPreventiva = Preventiva(
-                    data = edtData.text.toString(),
+                    //data = edtData.text.toString(),
+                    data = dateFormat.format(Calendar.getInstance().time),
                     descricao = edtDescricao.text.toString(),
                     responsavel = edtResponsavel.text.toString(),
+                    limpeza = limpezaCheck.isChecked,
+                    inspecao = inspecaoCheck.isChecked,
+                    limpezaExterna = limpezaExternaCheck.isChecked,
                     site = idSite
                 )
 

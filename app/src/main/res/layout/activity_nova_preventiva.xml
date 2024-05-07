@@ -1,63 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/headerLayout"
-        layout="@layout/header_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/txtNomeSite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"/>
-
-    <TextView
-        android:id="@+id/txtNomeEmissora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"/>
-
-    <EditText
-        android:id="@+id/edtData"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data"
-        android:inputType="date"
-        android:layout_margin="16dp"/>
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edtDescricao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Descrição"
-        android:inputType="textMultiLine"
-        android:layout_margin="16dp"/>
+        <include
+            android:id="@+id/headerLayout"
+            layout="@layout/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/edtResponsavel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Responsável"
-        android:inputType="text"
-        android:layout_margin="16dp"/>
+        <TextView
+            android:text="Posto "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNomeSite"
+            android:textColor="#0079bf"
+            android:textSize="36sp"
+            android:textAllCaps="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/btnSavePreventiva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Salvar"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"/>
+        <TextView
+            android:text="Regional "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_below="@+id/nomePosto"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtNomeEmissora"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01. Inspeção Visual: Equipamentos com Alarmes"
+            android:id="@+id/itemTitulo1"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Realizado"
+            android:id="@+id/inspecaoCheck"
+            android:buttonTint="#0079bf"
+            android:textSize="16sp"
+            android:textColor="@android:color/tertiary_text_light"
+            android:checked="false"
+            android:layout_margin="16dp"
+            android:layout_column="4"
+            android:layout_row="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02. Limpeza Interna"
+            android:id="@+id/itemTitulo2"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Realizado"
+            android:id="@+id/limpezaCheck"
+            android:buttonTint="#0079bf"
+            android:textSize="16sp"
+            android:textColor="@android:color/tertiary_text_light"
+            android:checked="false"
+            android:layout_margin="16dp"
+            android:layout_column="4"
+            android:layout_row="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03. Limpeza Externa"
+            android:id="@+id/itemTitulo3"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Realizado"
+            android:id="@+id/limpezaExternaCheck"
+            android:buttonTint="#0079bf"
+            android:textSize="16sp"
+            android:textColor="@android:color/tertiary_text_light"
+            android:checked="false"
+            android:layout_margin="16dp"
+            android:layout_column="4"
+            android:layout_row="0"/>
+
+        <EditText
+            android:id="@+id/edtData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data"
+            android:inputType="date"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/edtDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição"
+            android:inputType="textMultiLine"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/edtResponsavel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Responsável"
+            android:inputType="text"
+            android:layout_margin="16dp"/>
+
+        <Button
+            android:id="@+id/btnSavePreventiva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
