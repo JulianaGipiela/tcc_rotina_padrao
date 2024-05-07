@@ -584,7 +584,7 @@
             android:id="@+id/edtDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Data"
+            android:hint="Itens"
             android:inputType="text"
             android:layout_margin="16dp"/>
 
