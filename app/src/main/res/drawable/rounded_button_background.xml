@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" /> <!-- Raio dos cantos para a borda arredondada -->
+    <solid android:color="#FFFFFF" /> <!-- Cor de fundo do botão -->
+</shape>

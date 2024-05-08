@@ -1,6 +1,7 @@
 package com.example.rotinapadrao
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -44,8 +45,17 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
                         val siteId = siteSnapshot.key
                         val siteNome = siteSnapshot.getValue(String::class.java)
                         if (siteNome != null && siteId != null) {
+                            val buttonLayoutParams = LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT
+                            )
+                            buttonLayoutParams.setMargins(20, 0, 20, 50)
+
                             val button = Button(this@DetalhesEmissoraActivity)
                             button.text = siteNome
+                            button.setTextColor(Color.parseColor("#0079bf"))
+                            button.setBackgroundResource(R.drawable.rounded_button_background)
+                            button.layoutParams = buttonLayoutParams
                             button.setOnClickListener {
                                 val intent = Intent(this@DetalhesEmissoraActivity, DetalhesSiteActivity::class.java)
                                 intent.putExtra("ID_SITE", siteId) // Passa o ID do site para a próxima atividade

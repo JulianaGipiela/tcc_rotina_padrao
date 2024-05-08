@@ -13,22 +13,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!-- Título do site -->
     <TextView
+        android:text="Posto "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/txtNomeSite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"/>
+        android:textColor="#0079bf"
+        android:textSize="36sp"
+        android:textAllCaps="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_horizontal"/>
 
-    <!-- Nome da emissora -->
     <TextView
-        android:id="@+id/txtNomeEmissora"
+        android:text="Regional "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"/>
+        android:textSize="20sp"
+        android:layout_below="@+id/nomePosto"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txtNomeEmissora"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"/>
+
 
     <!-- Botão "Última Preventiva" -->
     <Button
