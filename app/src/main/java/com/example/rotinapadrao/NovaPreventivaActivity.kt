@@ -63,6 +63,13 @@ class NovaPreventivaActivity : AppCompatActivity() {
             finish()
         }
 
+        val homeButton = findViewById<ImageButton>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         // Inicializa as views
         txtNomeSite = findViewById(R.id.txtNomeSite)
         txtNomeEmissora = findViewById(R.id.txtNomeEmissora)

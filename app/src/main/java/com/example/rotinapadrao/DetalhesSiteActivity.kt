@@ -41,6 +41,13 @@ class DetalhesSiteActivity : AppCompatActivity() {
             finish()
         }
 
+        val homeButton = findViewById<ImageButton>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         // Define o título da ActionBar como o nome do site
         supportActionBar?.title = nomeSite
 
@@ -143,6 +150,7 @@ class DetalhesSiteActivity : AppCompatActivity() {
                                     intent.putExtra("TENSAOF2F3", tensaof2f3)
                                     intent.putExtra("TENSAOF1F2", tensaof1f2)
                                     startActivity(intent)
+                                    finish()
                                     // Agora você pode usar esses dados como quiser
                                 } else {
                                     // Não há preventivas para este site

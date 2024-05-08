@@ -27,6 +27,13 @@ class DetalhesPreventivaActivity : AppCompatActivity() {
             finish()
         }
 
+        val homeButton = findViewById<ImageButton>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val txtData = findViewById<TextView>(R.id.txtData)
         val txtResponsavel = findViewById<TextView>(R.id.txtResponsavel)
         val txtDescricao = findViewById<TextView>(R.id.txtDescricao)

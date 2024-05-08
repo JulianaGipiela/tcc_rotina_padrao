@@ -34,6 +34,13 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
             finish()
         }
 
+        val homeButton = findViewById<ImageButton>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val idEmissora = intent.getIntExtra("ID_EMISSORA", -1)
         val emissoraRef = database.getReference("emissora").child(idEmissora.toString())
 
@@ -73,6 +80,7 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
                                 intent.putExtra("NOME_SITE", siteNome)
                                 intent.putExtra("NOME_EMISSORA", emissora)
                                 startActivity(intent)
+                                finish()
                             }
                             layoutBotoesSites.addView(button)
                         }

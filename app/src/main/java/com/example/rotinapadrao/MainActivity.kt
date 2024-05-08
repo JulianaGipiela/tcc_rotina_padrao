@@ -53,5 +53,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DetalhesEmissoraActivity::class.java)
         intent.putExtra("ID_EMISSORA", idEmissora)
         startActivity(intent)
+        finish()
     }
 }
