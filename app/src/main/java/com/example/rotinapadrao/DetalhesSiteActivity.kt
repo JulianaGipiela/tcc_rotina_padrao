@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -29,7 +30,16 @@ class DetalhesSiteActivity : AppCompatActivity() {
         val idEmissora = intent.getIntExtra("ID_EMISSORA", -1)
         val idSite = intent.getStringExtra("ID_SITE")
 
+        auth = FirebaseAuth.getInstance()
 
+        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // Define o título da ActionBar como o nome do site
         supportActionBar?.title = nomeSite

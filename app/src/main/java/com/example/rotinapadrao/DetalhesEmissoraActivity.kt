@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,15 @@ class DetalhesEmissoraActivity : AppCompatActivity() {
         // Inicialize o Firebase
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+
+        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val idEmissora = intent.getIntExtra("ID_EMISSORA", -1)
         val emissoraRef = database.getReference("emissora").child(idEmissora.toString())

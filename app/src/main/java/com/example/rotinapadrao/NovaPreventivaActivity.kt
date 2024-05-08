@@ -1,11 +1,13 @@
 package com.example.rotinapadrao
 
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -50,6 +52,15 @@ class NovaPreventivaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nova_preventiva)
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+
+        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // Inicializa as views
         txtNomeSite = findViewById(R.id.txtNomeSite)

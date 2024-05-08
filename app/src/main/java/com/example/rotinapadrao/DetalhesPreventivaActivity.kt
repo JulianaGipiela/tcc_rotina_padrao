@@ -1,15 +1,31 @@
 package com.example.rotinapadrao
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class DetalhesPreventivaActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_preventiva)
+
+        auth = FirebaseAuth.getInstance()
+
+        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val txtData = findViewById<TextView>(R.id.txtData)
         val txtResponsavel = findViewById<TextView>(R.id.txtResponsavel)
