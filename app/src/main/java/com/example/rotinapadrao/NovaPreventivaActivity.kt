@@ -9,6 +9,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -147,7 +148,7 @@ class NovaPreventivaActivity : AppCompatActivity() {
                 // Salva a nova preventiva no Firebase utilizando a chave gerada
                 preventivasRef.child(novaPreventivaKey).setValue(novaPreventiva)
                     .addOnSuccessListener {
-                        // Preventiva salva com sucesso
+                        Toast.makeText(this@NovaPreventivaActivity, "Preventiva salva com sucesso!", Toast.LENGTH_SHORT).show()
                         Log.d("DetalhesSiteActivity", "Preventiva salva com sucesso!")
                         // Aqui você pode adicionar qualquer lógica adicional, se necessário
                     }
