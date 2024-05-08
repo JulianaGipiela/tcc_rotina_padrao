@@ -31,6 +31,13 @@ class RegisterActivity : AppCompatActivity() {
                 registerUser(email, password)
             }
         }
+
+        binding.login.setOnClickListener {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun registerUser(email: String, password: String) {
@@ -43,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val snackbar = Snackbar.make(binding.root, "Registration successful!", Snackbar.LENGTH_SHORT)
                     snackbar.show()
-                    // Redireciona para a tela de login
+                    Toast.makeText(this@RegisterActivity, "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish() // Fecha a RegisterActivity após iniciar a LoginActivity
